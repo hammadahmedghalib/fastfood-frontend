@@ -3,139 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Bites Restaurant</title>
-
-<!-- Google Font -->
+<title>Khyber Bites ULTRA PRO</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0f172a;color:#fff}
 
-    body {
-        background: #f5f5f5;
-    }
+header{
+  position: relative;
+  background: url("https://www.thedailymeal.com/img/gallery/the-15-most-ordered-fast-food-items-from-popular-chains/l-intro-1684169287.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  text-align: center;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
 
-    /* Header */
-    header {
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        text-align: center;
-        padding: 80px 20px;
-    }
+header::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.55);
+}
 
-    header h1 {
-        font-size: 50px;
-    }
+header h1,
+header p{
+  position: relative;
+  z-index: 2;
+}
 
-    header p {
-        margin-top: 10px;
-        font-size: 18px;
-    }
+header h1{
+  font-size: 60px;
+  font-weight: 700;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
 
-    /* Navbar */
-    nav {
-        background: #111;
-        display: flex;
-        justify-content: center;
-        padding: 15px;
-    }
+header p{
+  font-size: 18px;
+  opacity: 0.9;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+header h1{font-size:52px}
+header p{opacity:.9}
 
-    nav a {
-        color: white;
-        margin: 0 20px;
-        text-decoration: none;
-        font-weight: 500;
-    }
+nav{display:flex;justify-content:center;gap:20px;padding:15px;background:#020617;position:sticky;top:0;z-index:1000}
+nav a{color:#fff;text-decoration:none;padding:8px 15px;border-radius:20px;transition:.3s}
+nav a:hover{background:#ff7a18}
 
-    nav a:hover {
-        color: orange;
-    }
+section{padding:50px 20px;text-align:center}
 
-    section {
-        padding: 50px 20px;
-        text-align: center;
-    }
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
 
-    h2 {
-        margin-bottom: 20px;
-        font-size: 30px;
-    }
+.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);padding:15px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.4s}
+.card:hover{transform:translateY(-12px) scale(1.05)}
+.card img{width:100%;border-radius:15px}
+.card h3{margin:10px 0}
+.card p{opacity:.9}
 
-    /* Menu Cards */
-    .menu-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
+button{background:linear-gradient(135deg,#ff7a18,#ffb347);border:none;color:#fff;padding:10px 15px;border-radius:20px;cursor:pointer;font-weight:500;transition:.3s}
+button:hover{transform:scale(1.1)}
 
-    .menu-card {
-        background: white;
-        border-radius: 15px;
-        width: 250px;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
+.cart,.admin{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:20px;border-radius:20px;max-width:500px;margin:20px auto}
 
-    .menu-card:hover {
-        transform: scale(1.05);
-    }
+input,select{width:100%;padding:10px;margin:8px 0;border-radius:10px;border:none;outline:none}
 
-    .menu-card img {
-        width: 100%;
-        border-radius: 10px;
-    }
-
-    .menu-card h3 {
-        margin: 10px 0;
-    }
-
-    button {
-        background: orange;
-        border: none;
-        padding: 10px 15px;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    button:hover {
-        background: darkorange;
-    }
-
-    /* Form */
-    form {
-        max-width: 400px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-
-    input {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    footer {
-        background: #111;
-        color: white;
-        text-align: center;
-        padding: 15px;
-    }
+footer{text-align:center;padding:20px;background:#020617;margin-top:30px}
+.hidden{display:none}
 
 </style>
 </head>
@@ -143,123 +83,112 @@
 <body>
 
 <header>
-    <h1>🍽️ Khyber Bites</h1>
-    <p>Experience Taste Like Never Before</p>
+<h1>🍽️ PIZZERIA </h1>
+<p>Fast Food • Premium Experience</p>
 </header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#menu">Menu</a>
-    <a href="#order">Order</a>
-    <a href="#contact">Contact</a>
+<a href="#menu">Menu</a>
+<a href="#cart">Cart</a>
+<a href="#order">Order</a>
+<a href="#admin" onclick="showAdmin()">Admin</a>
 </nav>
 
-<section id="home">
-    <h2>Welcome</h2>
-    <p>We serve fresh, delicious and high-quality food made with love ❤️</p>
+<section id="menu">
+<h2>🔥 Full Fast Food Menu</h2>
+<div class="menu">
+
+<!-- Pizza -->
+<div class="card"><img src="https://tse3.mm.bing.net/th/id/OIP.VUCfq4X_8rvvCIuwGtiAnQHaHa?pid=Api&h=220&P=0"><h3>Pizza</h3><p>Rs.1200</p><button onclick="add('Pizza',1200)">Add</button></div>
+
+<!-- Burgers -->
+<div class="card"><img src="https://tse2.mm.bing.net/th/id/OIP.t2Lu8UaZPkExIglP6QBzXwHaHa?pid=Api&h=220&P=0"><h3>Zinger Burger</h3><p>Rs.550</p><button onclick="add('Zinger Burger',550)">Add</button></div>
+<div class="card"><img src="https://tse4.mm.bing.net/th/id/OIP.5dHyOq5Q399krJk4Us7hpwHaHa?pid=Api&h=220&P=0"><h3>Cheese Burger</h3><p>Rs.600</p><button onclick="add('Cheese Burger',600)">Add</button></div>
+
+<!-- Biryani -->
+<div class="card"><img src="https://tse3.mm.bing.net/th/id/OIP.Yw0kF41mmQMimAivFgOxswHaHa?pid=Api&h=220&P=0"><h3>Biryani</h3><p>Rs.300</p><button onclick="add('Biryani',300)">Add</button></div>
+
+<!-- Shawarma -->
+<div class="card"><img src="https://www.kitchensanctuary.com/wp-content/uploads/2015/02/Chicken-Shawarma-square-FS-57.jpg"><h3>Shawarma</h3><p>Rs.250</p><button onclick="add('Shawarma',250)">Add</button></div>
+
+<!-- Fries -->
+<div class="card"><img src="https://envirofit.org/wp-content/uploads/2017/08/Homemade-Crispy-Seasoned-French-Fries.jpg"><h3>Fries</h3><p>Rs.200</p><button onclick="add('Fries',200)">Add</button></div>
+
+<!-- Sandwich -->
+<div class="card"><img src="https://charlotteslivelykitchen.com/wp-content/uploads/2016/10/Club-Sandwich-1.jpg"><h3>Club Sandwich</h3><p>Rs.400</p><button onclick="add('Club Sandwich',400)">Add</button></div>
+
+<!-- Nuggets -->
+<div class="card"><img src="https://i.pinimg.com/originals/23/61/ce/2361ceb86d999535b293f925484798b4.webp"><h3>Chicken Nuggets</h3><p>Rs.450</p><button onclick="add('Nuggets',450)">Add</button></div>
+
+<!-- Pasta -->
+<div class="card"><img src="https://www.momontimeout.com/wp-content/uploads/2022/08/one-pot-pasta-chorizo-pasta-square.jpeg"><h3>Pasta</h3><p>Rs.800</p><button onclick="add('Pasta',800)">Add</button></div>
+
+<!-- Drinks -->
+<div class="card"><img src="https://s3-alpha.figma.com/hub/file/3757076667/c5102674-020b-45df-a5b9-983ce0b343ce-cover.png"><h3>Cold Drink</h3><p>Rs.150</p><button onclick="add('Cold Drink',150)">Add</button></div>
+<div class="card"><img src="https://static.vecteezy.com/system/resources/previews/052/648/803/non_2x/fresh-fruit-juices-neatly-arranged-png.png"><h3>Fresh Juice</h3><p>Rs.250</p><button onclick="add('Juice',250)">Add</button></div>
+
+</div>
 </section>
 
-<section id="menu">
-    <h2>Our Menu</h2>
-
-    <div class="menu-container">
-
-        <div class="menu-card">
-            <img src="https://i.pinimg.com/originals/f9/00/7f/f9007f73da46783cb255a1e621637f27.jpg?nii=t">
-            <h3>Pizza</h3>
-            <p>Rs. 1200</p>
-            <button onclick="orderItem('Pizza')">Order</button>
-        </div>
-
-        <div class="menu-card">
-            <img src="https://tse2.mm.bing.net/th/id/OIP.VFZPQNKwQuLi-NhNLcIHgQHaHa?pid=Api&P=0&h=220">
-            <h3>Burger</h3>
-            <p>Rs. 500</p>
-            <button onclick="orderItem('Burger')">Order</button>
-        </div>
-
-        <div class="menu-card">
-            <img src="https://sweetcaramelsunday.com/wp-content/uploads/Penne-Bolognese-130.jpg">
-            <h3>Pasta</h3>
-            <p>Rs. 800</p>
-            <button onclick="orderItem('Pasta')">Order</button>
-        </div>
-<div class="menu-card">
-            <img src="https://pics.craiyon.com/2023-07-08/b33f3ecbb22249eb828b3b83baeeada4.webp">
-            <h3>Biryani</h3>
-            <p>Rs. 300</p>
-            <button onclick="orderItem('Biryani')">Order</button>
-        </div>
-    </div>
+<section id="cart">
+<h2>🛒 Cart</h2>
+<div class="cart">
+<ul id="items"></ul>
+<h3>Total: Rs. <span id="total">0</span></h3>
+</div>
 </section>
 
 <section id="order">
-    <h2>Place Your Order</h2>
-
-    <form id="orderForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="text" id="food" placeholder="Food Item" required>
-        <label for="phone">Phone Number:</label>
-<input type="tel" id="phone" name="phone" placeholder="03XXXXXXXXX" required>
-<label>Location:</label><br>
-<input type="text" id="location" placeholder="Enter your location" required><br><br>
-        <button type="submit">Submit Order</button>
-    </form>
-
-    <p id="response"></p>
+<h2>📦 Checkout</h2>
+<form id="form">
+<input id="name" placeholder="Your Name" required>
+<input id="phone" placeholder="Phone Number" required>
+<input id="location" placeholder="Location" required>
+<select id="payment">
+<option>Cash on Delivery</option>
+<option>JazzCash</option>
+<option>Easypaisa</option>
+</select>
+<button>Place Order</button>
+</form>
+<p id="msg"></p>
 </section>
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email:ha8137915@gmail.com</p>
-    <p>Phone: 0319-9608782</p>
+
+<section id="admin" class="hidden">
+<h2>🧑‍💼 Admin Panel</h2>
+<div class="admin">
+<ul id="orders"></ul>
+</div>
+</section>
+
 <footer>
-    <p>© 2026 Khyber Bites | All Rights Reserved</p>
+<p>© 2026 Khyber Bites ULTRA PRO</p>
 </footer>
 
 <script>
-let userLocation = "";
+let cart=[];
+function add(n,p){cart.push({n,p});render();}
+function render(){let ul=items;ul.innerHTML='';let t=0;cart.forEach(i=>{ul.innerHTML+=`<li>${i.n} - Rs.${i.p}</li>`;t+=i.p});total.innerText=t}
 
-function orderItem(item) {
-    document.getElementById("food").value = item;
-    window.location.href = "#order";
-}
-
-// GET LOCATION FROM INPUT (simple)
-document.getElementById("location").addEventListener("input", function() {
-    userLocation = this.value;
+form.addEventListener('submit',e=>{
+e.preventDefault();
+let order={name:name.value,phone:phone.value,location:location.value,payment:payment.value,items:cart,status:'Preparing'};
+let orders=JSON.parse(localStorage.getItem('orders')||'[]');
+orders.push(order);
+localStorage.setItem('orders',JSON.stringify(orders));
+msg.innerText='✅ Order Placed!';
+let txt=`Order: ${cart.map(i=>i.n).join(', ')} | ${order.location}`;
+window.open(`https://wa.me/923199608782?text=${txt}`);
+cart=[];render();
 });
 
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+function showAdmin(){admin.classList.remove('hidden');loadOrders();}
+function loadOrders(){let orders=JSON.parse(localStorage.getItem('orders')||'[]');ordersList='';orders.forEach((o,i)=>{ordersList+=`<li>${o.name} - ${o.items.map(x=>x.n)} - ${o.status}<br><button onclick="updateStatus(${i})">Next</button><button onclick="del(${i})">Delete</button></li><br>`});orders.innerHTML=ordersList}
+function updateStatus(i){let orders=JSON.parse(localStorage.getItem('orders'));let s=orders[i].status;orders[i].status=s==='Preparing'?'Out for Delivery':'Delivered';localStorage.setItem('orders',JSON.stringify(orders));loadOrders()}
+function del(i){let orders=JSON.parse(localStorage.getItem('orders'));orders.splice(i,1);localStorage.setItem('orders',JSON.stringify(orders));loadOrders()}
 
-    const name = document.getElementById("name").value;
-    const food = document.getElementById("food").value;
-    const phone = document.getElementById("phone").value;
-    const location = document.getElementById("location").value;
-
-    fetch("https://restaurant-website-1p5e.onrender.com/order", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ 
-            name, 
-            phone, 
-            order: food,
-            location 
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("response").innerText = data.message;
-    })
-    .catch(err => {
-        document.getElementById("response").innerText = "Error placing order!";
-    });
-});
+navigator.geolocation.getCurrentPosition(p=>{location.value=`Lat:${p.coords.latitude}, Lng:${p.coords.longitude}`});
 </script>
-
-
 
 </body>
 </html>

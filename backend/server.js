@@ -1,3 +1,4 @@
+const supabase = require("./supabase");
 const express = require('express');
 const cors = require('cors');
 
@@ -39,4 +40,25 @@ const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
     console.log("Server running on port", PORT);
+});
+
+app.use(express.json());
+
+app.post("/order", async (req, res) => {
+  const { name, phone, location, payment, items } = req.body;
+
+  const { data, error } = await supabase
+    .from("orders")   // IMPORTANT: must match table name
+    .insert([
+      {
+        name,
+        phone,
+        location,
+        payment,
+        items,
+        status: "Preparing"
+      }
+    ]);
+
+  res.json({ data, error });
 });
