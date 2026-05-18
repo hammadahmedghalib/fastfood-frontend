@@ -91,7 +91,6 @@ footer{text-align:center;padding:20px;background:#020617;margin-top:30px}
 <a href="#menu">Menu</a>
 <a href="#cart">Cart</a>
 <a href="#order">Order</a>
-<a href="#admin" onclick="showAdmin()">Admin</a>
 </nav>
 
 <section id="menu">
@@ -172,8 +171,13 @@ let orders=JSON.parse(localStorage.getItem('orders')||'[]');
 orders.push(order);
 localStorage.setItem('orders',JSON.stringify(orders));
 msg.innerText='✅ Order Placed!';
-let txt=`Order: ${cart.map(i=>i.n).join(', ')} | ${order.location}`;
-window.open(`https://wa.me/923199608782?text=${txt}`);
+let txt = `🍔 New Order:
+👤 Name: ${order.name}
+📞 Phone: ${order.phone}
+🛒 Items: ${cart.map(i=>i.n).join(', ')}
+📍 Location: ${order.location}
+💳 Payment: ${order.payment}`;
+window.open(`https://wa.me/923199608782?text=${encodeURIComponent(txt)}`);
 cart=[];render();
 });
 
