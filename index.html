@@ -129,6 +129,10 @@ footer{text-align:center;padding:20px;background:#020617;margin-top:30px}
 </div>
 </section>
 
+<button type="button" onclick="getLocation()">
+📍 Use My Current Location
+</button>
+
 <section id="cart">
 <h2>🛒 Cart</h2>
 <div class="cart">
@@ -186,7 +190,8 @@ function loadOrders(){let orders=JSON.parse(localStorage.getItem('orders')||'[]'
 function updateStatus(i){let orders=JSON.parse(localStorage.getItem('orders'));let s=orders[i].status;orders[i].status=s==='Preparing'?'Out for Delivery':'Delivered';localStorage.setItem('orders',JSON.stringify(orders));loadOrders()}
 function del(i){let orders=JSON.parse(localStorage.getItem('orders'));orders.splice(i,1);localStorage.setItem('orders',JSON.stringify(orders));loadOrders()}
 
-navigator.geolocation.getCurrentPosition(p=>{location.value=`Lat:${p.coords.latitude}, Lng:${p.coords.longitude}`});
+
+
 </script>
 
 </body>
