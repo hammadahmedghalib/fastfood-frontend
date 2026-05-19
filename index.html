@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crunch Corner</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -25,65 +26,88 @@ header{
 header::before{
   content:"";
   position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background: rgba(0,0,0,0.55);
 }
 
-header h1,
-header p{
+header h1, header p{
   position: relative;
   z-index: 2;
 }
 
-header h1{
-  font-size: 60px;
-  font-weight: 700;
-  text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:15px;
+  background:#020617;
+  position:sticky;
+  top:0;
 }
 
-header p{
-  font-size: 18px;
-  opacity: 0.9;
-  margin-top: 10px;
-  letter-spacing: 1px;
+nav a{
+  color:#fff;
+  text-decoration:none;
 }
-header h1{font-size:52px}
-header p{opacity:.9}
 
-nav{display:flex;justify-content:center;gap:20px;padding:15px;background:#020617;position:sticky;top:0;z-index:1000}
-nav a{color:#fff;text-decoration:none;padding:8px 15px;border-radius:20px;transition:.3s}
-nav a:hover{background:#ff7a18}
+section{
+  padding:40px;
+  text-align:center;
+}
 
-section{padding:50px 20px;text-align:center}
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
 
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  border-radius:15px;
+}
 
-.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);padding:15px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.4s}
-.card:hover{transform:translateY(-12px) scale(1.05)}
-.card img{width:100%;border-radius:15px}
-.card h3{margin:10px 0}
-.card p{opacity:.9}
+.card img{
+  width:100%;
+  border-radius:10px;
+}
 
-button{background:linear-gradient(135deg,#ff7a18,#ffb347);border:none;color:#fff;padding:10px 15px;border-radius:20px;cursor:pointer;font-weight:500;transition:.3s}
-button:hover{transform:scale(1.1)}
+button{
+  margin-top:10px;
+  padding:8px 12px;
+  border:none;
+  border-radius:10px;
+  background:orange;
+  cursor:pointer;
+}
 
-.cart,.admin{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:20px;border-radius:20px;max-width:500px;margin:20px auto}
+.cart{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:10px;
+  max-width:400px;
+  margin:auto;
+}
 
-input,select{width:100%;padding:10px;margin:8px 0;border-radius:10px;border:none;outline:none}
+input,select{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+}
 
-footer{text-align:center;padding:20px;background:#020617;margin-top:30px}
-.hidden{display:none}
-
+footer{
+  text-align:center;
+  padding:20px;
+  background:#020617;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🍽️ Crunch Corner </h1>
+<h1>🍽️ Crunch Corner</h1>
 <p>Fast Food • Premium Experience</p>
 </header>
 
@@ -94,104 +118,270 @@ footer{text-align:center;padding:20px;background:#020617;margin-top:30px}
 </nav>
 
 <section id="menu">
-<h2>🔥 Full Fast Food Menu</h2>
-<div class="menu">
+<h2>🔥 Crunch Corner Menu</h2>
 
-<!-- Pizza -->
-<div class="card"><img src="https://tse3.mm.bing.net/th/id/OIP.VUCfq4X_8rvvCIuwGtiAnQHaHa?pid=Api&h=220&P=0"><h3>Pizza</h3><p>Rs.1200</p><button onclick="add('Pizza',1200)">Add</button></div>
+<style>
+.menu-title{
+  font-size:28px;
+  margin-bottom:20px;
+}
 
-<!-- Burgers -->
-<div class="card"><img src="https://tse2.mm.bing.net/th/id/OIP.t2Lu8UaZPkExIglP6QBzXwHaHa?pid=Api&h=220&P=0"><h3>Zinger Burger</h3><p>Rs.550</p><button onclick="add('Zinger Burger',550)">Add</button></div>
-<div class="card"><img src="https://tse4.mm.bing.net/th/id/OIP.5dHyOq5Q399krJk4Us7hpwHaHa?pid=Api&h=220&P=0"><h3>Cheese Burger</h3><p>Rs.600</p><button onclick="add('Cheese Burger',600)">Add</button></div>
+.category{
+  margin-top:40px;
+  text-align:left;
+  max-width:1100px;
+  margin-inline:auto;
+}
 
-<!-- Biryani -->
-<div class="card"><img src="https://tse3.mm.bing.net/th/id/OIP.Yw0kF41mmQMimAivFgOxswHaHa?pid=Api&h=220&P=0"><h3>Biryani</h3><p>Rs.300</p><button onclick="add('Biryani',300)">Add</button></div>
+.category h3{
+  margin-bottom:15px;
+  color:#ffb347;
+  border-left:4px solid #ff7a18;
+  padding-left:10px;
+}
 
-<!-- Shawarma -->
-<div class="card"><img src="https://www.kitchensanctuary.com/wp-content/uploads/2015/02/Chicken-Shawarma-square-FS-57.jpg"><h3>Shawarma</h3><p>Rs.250</p><button onclick="add('Shawarma',250)">Add</button></div>
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
 
-<!-- Fries -->
-<div class="card"><img src="https://envirofit.org/wp-content/uploads/2017/08/Homemade-Crispy-Seasoned-French-Fries.jpg"><h3>Fries</h3><p>Rs.200</p><button onclick="add('Fries',200)">Add</button></div>
+.card{
+  background:linear-gradient(145deg,#111827,#0b1220);
+  padding:15px;
+  border-radius:18px;
+  transition:0.3s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  position:relative;
+  overflow:hidden;
+}
 
-<!-- Sandwich -->
-<div class="card"><img src="https://charlotteslivelykitchen.com/wp-content/uploads/2016/10/Club-Sandwich-1.jpg"><h3>Club Sandwich</h3><p>Rs.400</p><button onclick="add('Club Sandwich',400)">Add</button></div>
+.card:hover{
+  transform:translateY(-8px) scale(1.03);
+}
 
-<!-- Nuggets -->
-<div class="card"><img src="https://i.pinimg.com/originals/23/61/ce/2361ceb86d999535b293f925484798b4.webp"><h3>Chicken Nuggets</h3><p>Rs.450</p><button onclick="add('Nuggets',450)">Add</button></div>
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:12px;
+}
 
-<!-- Pasta -->
-<div class="card"><img src="https://www.momontimeout.com/wp-content/uploads/2022/08/one-pot-pasta-chorizo-pasta-square.jpeg"><h3>Pasta</h3><p>Rs.800</p><button onclick="add('Pasta',800)">Add</button></div>
+.card h4{
+  margin:10px 0 5px;
+}
 
-<!-- Drinks -->
-<div class="card"><img src="https://s3-alpha.figma.com/hub/file/3757076667/c5102674-020b-45df-a5b9-983ce0b343ce-cover.png"><h3>Cold Drink</h3><p>Rs.150</p><button onclick="add('Cold Drink',150)">Add</button></div>
-<div class="card"><img src="https://static.vecteezy.com/system/resources/previews/052/648/803/non_2x/fresh-fruit-juices-neatly-arranged-png.png"><h3>Fresh Juice</h3><p>Rs.250</p><button onclick="add('Juice',250)">Add</button></div>
+.price{
+  color:#ffb347;
+  font-weight:bold;
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#ff7a18;
+  padding:3px 8px;
+  font-size:12px;
+  border-radius:10px;
+}
+</style>
+
+<!-- BURGERS -->
+<div class="category">
+<h3>🍔 Burgers</h3>
+<div class="menu-grid">
+
+<div class="card">
+<span class="badge">Popular</span>
+<img src="https://tse2.mm.bing.net/th/id/OIP.t2Lu8UaZPkExIglP6QBzXwHaHa">
+<h4>Zinger Burger</h4>
+<p class="price">Rs 550</p>
+<button onclick="add('Zinger Burger',550)">Add</button>
+</div>
+
+<div class="card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.5dHyOq5Q399krJk4Us7hpwHaHa">
+<h4>Cheese Burger</h4>
+<p class="price">Rs 600</p>
+<button onclick="add('Cheese Burger',600)">Add</button>
+</div>
+
+<div class="card">
+<img src="https://www.kitchensanctuary.com/wp-content/uploads/2019/08/Crispy-Chicken-Burger-square-FS-4518.jpg">
+<h4>Chicken Burger</h4>
+<p class="price">Rs 450</p>
+<button onclick="add('Chicken Burger',450)">Add</button>
+</div>
 
 </div>
+</div>
+
+<!-- PIZZA -->
+<div class="category">
+<h3>🍕 Pizza</h3>
+<div class="menu-grid">
+
+<div class="card">
+<span class="badge">Hot</span>
+<img src="https://kierasrecipes.com/wp-content/uploads/2025/06/delicious-chicken-fajita-pizza.webp">
+<h4>Fajita Pizza</h4>
+<p class="price">Rs 1200</p>
+<button onclick="add('Fajita Pizza',1200)">Add</button>
+</div>
+
+<div class="card">
+<span class="badge">Popular</span>
+<img src="https://i.ytimg.com/vi/0bWM9PhJHns/maxresdefault.jpg">
+<h4>Crown Crust Pizza</h4>
+<p class="price">Rs 1600</p>
+<button onclick="add('Crown Crust Pizza',1600)">Add</button>
+</div>
+
+<div class="card">
+<img src="https://healthywayrecipes.com/wp-content/uploads/2025/01/Classic-Pepperonis-Pizza-Fresh-from-the-Oven.png">
+<h4>Pepperoni Pizza</h4>
+<p class="price">Rs 1400</p>
+<button onclick="add('Pepperoni Pizza',1400)">Add</button>
+</div>
+
+</div>
+</div>
+
+<!-- FAST FOOD -->
+<div class="category">
+<h3>🍟 Fast Food</h3>
+<div class="menu-grid">
+
+<div class="card">
+<img src="https://envirofit.org/wp-content/uploads/2017/08/Homemade-Crispy-Seasoned-French-Fries.jpg">
+<h4>Fries</h4>
+<p class="price">Rs 200</p>
+<button onclick="add('Fries',200)">Add</button>
+</div>
+
+<div class="card">
+<img src="https://www.kitchensanctuary.com/wp-content/uploads/2015/02/Chicken-Shawarma-square-FS-57.jpg">
+<h4>Shawarma</h4>
+<p class="price">Rs 250</p>
+<button onclick="add('Shawarma',250)">Add</button>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/originals/23/61/ce/2361ceb86d999535b293f925484798b4.webp">
+<h4>Nuggets</h4>
+<p class="price">Rs 450</p>
+<button onclick="add('Nuggets',450)">Add</button>
+</div>
+
+</div>
+</div>
+
+<!-- DRINKS -->
+<div class="category drinks">
+<h3>🥤 Drinks</h3>
+<div class="menu-grid">
+
+<div class="card">
+<span class="badge">Cold</span>
+<img src="https://tse4.mm.bing.net/th/id/OIP.xE_tdbHRmeHoQsT8eDgUwgHaEK?pid=Api&h=220&P=0">
+<h4>Cold Drink</h4>
+<p class="price">Rs 150</p>
+<button onclick="add('Cold Drink',150)">Add</button>
+</div>
+
+<div class="card">
+<img src="https://static.vecteezy.com/system/resources/previews/052/648/803/non_2x/fresh-fruit-juices-neatly-arranged-png.png">
+<h4>Fresh Juice</h4>
+<p class="price">Rs 250</p>
+<button onclick="add('Juice',250)">Add</button>
+</div>
+
+</div>
+</div>
+
 </section>
 
-<button type="button" onclick="getLocation()">
-📍 Use My Current Location
-</button>
-
 <section id="cart">
-<h2>🛒 Cart</h2>
+<h2>Cart</h2>
 <div class="cart">
 <ul id="items"></ul>
-<h3>Total: Rs. <span id="total">0</span></h3>
+<h3>Total: Rs <span id="total">0</span></h3>
 </div>
 </section>
 
 <section id="order">
-<h2>📦 Checkout</h2>
+<h2>Checkout</h2>
+
 <form id="form">
 <input id="name" placeholder="Your Name" required>
-<input id="phone" placeholder="Phone Number" required>
-<input id="location" placeholder="Location" required>
+<input id="phone" placeholder="Phone" required>
+<input id="userLocation" placeholder="Location" required>
+
 <select id="payment">
 <option>Cash on Delivery</option>
 <option>JazzCash</option>
 <option>Easypaisa</option>
 </select>
-<button>Place Order</button>
+
+<button type="submit">Place Order</button>
 </form>
+
 <p id="msg"></p>
 </section>
 
-
-
 <footer>
-<p>Stay Hungry, Stay Crunchy 😎</p>
+<p>Stay Hungry 😎</p>
 </footer>
 
 <script>
-let cart=[];
-function add(n,p){cart.push({n,p});render();}
-function render(){let ul=items;ul.innerHTML='';let t=0;cart.forEach(i=>{ul.innerHTML+=`<li>${i.n} - Rs.${i.p}</li>`;t+=i.p});total.innerText=t}
+let cart = [];
 
-form.addEventListener('submit',e=>{
-e.preventDefault();
-let order={name:name.value,phone:phone.value,location:location.value,payment:payment.value,items:cart,status:'Preparing'};
-let orders=JSON.parse(localStorage.getItem('orders')||'[]');
-orders.push(order);
-localStorage.setItem('orders',JSON.stringify(orders));
-msg.innerText='✅ Order Placed!';
-let txt = `🍔 New Order:
-👤 Name: ${order.name}
-📞 Phone: ${order.phone}
-🛒 Items: ${cart.map(i=>i.n).join(', ')}
-📍 Location: ${order.location}
-💳 Payment: ${order.payment}`;
-window.open(`https://wa.me/923199608782?text=${encodeURIComponent(txt)}`);
-cart=[];render();
+function add(n, p){
+  cart.push({n,p});
+  render();
+}
+
+function render(){
+  const ul = document.getElementById("items");
+  const totalEl = document.getElementById("total");
+
+  ul.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(i=>{
+    ul.innerHTML += `<li>${i.n} - Rs ${i.p}</li>`;
+    total += i.p;
+  });
+
+  totalEl.innerText = total;
+}
+
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const order = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    location: document.getElementById("userLocation").value,
+    payment: document.getElementById("payment").value,
+    items: cart.map(i=>i.n)
+  };
+
+  document.getElementById("msg").innerText = "Order Placed ✅";
+
+  let txt = `🍔 New Order:
+👤 ${order.name}
+📞 ${order.phone}
+🛒 ${order.items.join(", ")}
+📍 ${order.location}
+💳 ${order.payment}`;
+
+  window.open(`https://wa.me/923199608782?text=${encodeURIComponent(txt)}`);
+
+  cart = [];
+  render();
 });
-
-function showAdmin(){admin.classList.remove('hidden');loadOrders();}
-function loadOrders(){let orders=JSON.parse(localStorage.getItem('orders')||'[]');ordersList='';orders.forEach((o,i)=>{ordersList+=`<li>${o.name} - ${o.items.map(x=>x.n)} - ${o.status}<br><button onclick="updateStatus(${i})">Next</button><button onclick="del(${i})">Delete</button></li><br>`});orders.innerHTML=ordersList}
-function updateStatus(i){let orders=JSON.parse(localStorage.getItem('orders'));let s=orders[i].status;orders[i].status=s==='Preparing'?'Out for Delivery':'Delivered';localStorage.setItem('orders',JSON.stringify(orders));loadOrders()}
-function del(i){let orders=JSON.parse(localStorage.getItem('orders'));orders.splice(i,1);localStorage.setItem('orders',JSON.stringify(orders));loadOrders()}
-
-
-
 </script>
 
 </body>

@@ -1,49 +1,45 @@
-const supabase = require("./supabase");
-const express = require('express');
-const cors = require('cors');
+form.addEventListener('submit', e => {
+  e.preventDefault();
 
-const app = express();
+  const order = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    location: document.getElementById("userLocation").value,
+    payment: document.getElementById("payment").value,
+    items: cart,
+    status: "Preparing"
+  };
 
-app.use(cors());
-app.use(express.json());
+  let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
 
-// home route
-app.get('/', (req, res) => {
-    res.send("Restaurant Backend Running on Render ✅");
+  msg.innerText = "✅ Order Placed!";
+
+  let txt = `🍔 New Order:
+👤 Name: ${order.name}
+📞 Phone: ${order.phone}
+🛒 Items: ${cart.map(i => i.n).join(', ')}
+📍 Location: ${order.location}
+💳 Payment: ${order.payment}`;
+
+  window.open(`https://wa.me/923199608782?text=${encodeURIComponent(txt)}`);
+
+  cart = [];
+  render();
 });
 
-// SAVE ORDER (ONLY ONE ROUTE)
-app.post("/order", async (req, res) => {
-  const { name, phone, location, payment, items } = req.body;
+function render(){
+  let ul = document.getElementById("items");
+  let totalEl = document.getElementById("total");
 
-  const { data, error } = await supabase
-    .from("orders")
-    .insert([
-      {
-        name,
-        phone,
-        location,
-        payment,
-        items,
-        status: "Preparing"
-      }
-    ]);
+  ul.innerHTML = '';
+  let t = 0;
 
-  res.json({ data, error });
-});
+  cart.forEach(i => {
+    ul.innerHTML += `<li>${i.n} - Rs.${i.p}</li>`;
+    t += i.p;
+  });
 
-// GET ORDERS
-app.get('/orders', async (req, res) => {
-  const { data, error } = await supabase
-    .from("orders")
-    .select("*");
-
-  res.json(data);
-});
-
-// PORT
-const PORT = process.env.PORT || 10000;
-
-app.listen(PORT, () => {
-    console.log("Server running on port", PORT);
-});
+  totalEl.innerText = t;
+}

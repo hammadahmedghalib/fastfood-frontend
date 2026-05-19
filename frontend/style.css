@@ -1,5 +1,82 @@
-body { font-family: Arial; margin: 0; text-align: center; }
-header { background: #b22222; color: white; padding: 15px; }
-nav a { color: white; margin: 10px; text-decoration: none; }
-.hero { padding: 40px; }
-button { padding: 10px 20px; background: green; color: white; border: none; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+  background: #0f172a;
+  color: white;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #b22222, #ff4d4d);
+  color: white;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* NAVBAR */
+nav {
+  background: #111827;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #ff7a18;
+  color: black;
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 60px 20px;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #28a745, #00c853);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00c853, #28a745);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.category.drinks .card img {
+  height: 240px !important;
+  width: 100%;
+  object-fit: contain !important;
+  background: #0b1220;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.category.drinks .card {
+  min-height: 380px;
+}
+
+.menu-grid {
+  align-items: stretch;
+}
